@@ -885,7 +885,7 @@
         url = `mxc://${SERVER_NAME}/${currentGif.id}`;
       } else if ('media_formats' in currentGif) {
         const tenorId = currentGif.media_formats.webp.url.split('/').slice(-2, -1)[0];
-        url = `mxc://${SERVER_NAME}/t-${tenorId}`;
+        url = `mxc://${SERVER_NAME}/${tenorId}`;
       } else {
         url = `mxc://${SERVER_NAME}/${currentGif.id}`;
       }
@@ -902,7 +902,7 @@
         height = currentGif.height;
       } else if ('media_formats' in currentGif) {
         const tenorId = currentGif.media_formats.webp.url.split('/').slice(-2, -1)[0];
-        url = `mxc://${SERVER_NAME}/t-${tenorId}`;
+        url = `mxc://${SERVER_NAME}/${tenorId}`;
         width = currentGif.media_formats.webp.dims[0];
         height = currentGif.media_formats.webp.dims[1];
       } else {
@@ -948,8 +948,8 @@
           },
           "body": gif.filename,
           "msgtype": "m.image",
-          "url": `mxc://${SERVER_NAME}/${gif.id}`,
-          "filename": gif.filename
+          "url": `mxc://${SERVER_NAME}/${gif.id.replace('g-', '')}`,
+          "filename": gif.filename.replace('g-', '')
         });
       } else if ('media_formats' in gif) {
         dimensions = customSize ?
@@ -964,7 +964,7 @@
             "mimetype": "image/webp",
           },
           "msgtype": "m.image",
-          "url": `mxc://${SERVER_NAME}/t-${tenorId}`,
+          "url": `mxc://${SERVER_NAME}/${tenorId}`,
           "filename": `${tenorId}.webp`,
         });
       } else {
@@ -979,8 +979,8 @@
             "mimetype": "image/webp",
           },
           "msgtype": "m.image",
-          "url": `mxc://${SERVER_NAME}/g-${gif.id}`,
-          "filename": `${gif.id}.webp`,
+          "url": `mxc://${SERVER_NAME}/${gif.id.replace('g-', '')}`,
+          "filename": `${gif.id.replace('g-', '')}.webp`,
         });
       }
       historyManager.addToHistory(gif);
