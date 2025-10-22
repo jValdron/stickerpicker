@@ -10,9 +10,6 @@
 </head>
 
 <body>
-  <div class="title-container">
-    <div class="title">PiX's finest GIF picker</div>
-  </div>
   <div id="app"></div>
   <div class="bottom-hover-area"></div>
   <div class="bottom-bar" id="bottomBar">
@@ -890,7 +887,7 @@
         const tenorId = currentGif.media_formats.webp.url.split('/').slice(-2, -1)[0];
         url = `mxc://${SERVER_NAME}/t-${tenorId}`;
       } else {
-        url = `mxc://${SERVER_NAME}/g-${currentGif.id}`;
+        url = `mxc://${SERVER_NAME}/${currentGif.id}`;
       }
       const markdown = `![${currentGif.title || currentGif.filename}](${url})`;
       navigator.clipboard.writeText(markdown);

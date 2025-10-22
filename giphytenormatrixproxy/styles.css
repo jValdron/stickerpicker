@@ -325,10 +325,3 @@ input[type=text] {
 .settings-container:hover .settings-menu {
     display: block
 }
-
-.title {
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    font-size: 20px;
-    margin-top: 6px;
-    animation: wave 6s infinite
-}
