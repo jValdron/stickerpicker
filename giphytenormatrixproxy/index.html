@@ -906,7 +906,7 @@
         width = currentGif.media_formats.webp.dims[0];
         height = currentGif.media_formats.webp.dims[1];
       } else {
-        url = `mxc://${SERVER_NAME}/g-${currentGif.id}`;
+        url = `mxc://${SERVER_NAME}/${currentGif.id}`;
         width = currentGif.images.fixed_height.width;
         height = currentGif.images.fixed_height.height;
       }
